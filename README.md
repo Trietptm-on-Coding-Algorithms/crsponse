@@ -18,6 +18,19 @@ A response tool to help in determining whether a machine has been infected with 
 - crsponse -user superman -proc
 - crsponse -user spiderman -files
 
+####Output Files:####
+- All files in relevant Crypto Ransomware directories and 1 subdirectory deep of that directory, such as %AppData% or %ProgramData%.  
+  **%computername%_info\%computername%_files.csv**
+
+- All processes running on machine.  
+  **%computername%_info\%computername%_processes.csv**
+
+- All registry keys that can be used by Crypto Ransomware.   
+  **%computername%_info\%computername%_registry_keys.csv**
+
+- Summary of files, processes, and registry keys. This will contain any files that *could* be Crypto Ransomware related, such as splash screen files. It will also contain any processes running out of known Crypto Ransomware directories. Lastly, it will contain all registry values in registry keys used by Crypto Ransomware, such as HKCU\Software\Microsoft\Windows\CurrentVersion\Run.
+  **%computername%_info\%computername%_files_SUMMARY.csv**
+
 ####Supported Platforms:####
 - Windows
 
