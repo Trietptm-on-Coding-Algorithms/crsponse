@@ -18,6 +18,9 @@ A response tool to help in determining whether a machine has been infected with 
 - crsponse -user superman -proc
 - crsponse -user spiderman -files
 
+####Supported Platforms:####
+- Windows
+
 ####Notes:####
 Compiled crsponse executable located in crsponse/bin/Release/crsponse.zip
 
