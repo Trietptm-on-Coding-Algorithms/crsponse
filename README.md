@@ -37,5 +37,5 @@ A response tool to help in determining whether a machine has been infected with 
 ####Notes:####
 Compiled crsponse executable located in **crsponse/bin/Release/crsponse.zip**
 
-If you would like to compile yourself, you will need Microsoft Visual Studio Tools installed on your machine, then run the below command in the crsponse directory.
+If you would like to compile yourself, you will need to run the below command in the crsponse directory. The csc command is the C# compiler included in the .NET framework and will be located in **C:\Windows\Microsoft.NET\Framework\ `<version>`**
 - **csc /out:crsponse.exe crsponse.cs**
