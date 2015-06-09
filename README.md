@@ -28,14 +28,14 @@ A response tool to help in determining whether a machine has been infected with 
 - All registry keys that can be used by Crypto Ransomware.   
   **%computername%_info\%computername%_registry_keys.csv**
 
-- Summary of files, processes, and registry keys. This will contain any files that *could* be Crypto Ransomware related, such as splash screen files. It will also contain any processes running out of known Crypto Ransomware directories. Lastly, it will contain all registry values in registry keys used by Crypto Ransomware, such as HKCU\Software\Microsoft\Windows\CurrentVersion\Run.
+- Summary of files, processes, and registry keys. This will remove the "noise", so that you can perform quicker analysis to determine whether a machine is infected with Crypto Ransomware. Crypto Ransomware related files, such as splash screens would be in this summary file. The file will also contain any processes running out of known Crypto Ransomware directories. Lastly, it will contain all registry values in registry keys used by Crypto Ransomware, such as HKCU\Software\Microsoft\Windows\CurrentVersion\Run.
   **%computername%_info\%computername%_files_SUMMARY.csv**
 
 ####Supported Platforms:####
 - Windows
 
 ####Notes:####
-Compiled crsponse executable located in crsponse/bin/Release/crsponse.zip
+Compiled crsponse executable located in **crsponse/bin/Release/crsponse.zip**
 
 If you would like to compile yourself, you will need Microsoft Visual Studio Tools installed on your machine, then run the below command in the crsponse directory.
 - **csc /out:crsponse.exe crsponse.cs**
