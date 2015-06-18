@@ -838,27 +838,40 @@ namespace crsponse
             DirectoryInfo oneDrive = new DirectoryInfo("C:\\" + userPath + "\\" + userName + "\\OneDrive");
             DirectoryInfo startup = new DirectoryInfo("C:\\" + userPath + "\\" + userName + "\\Start Menu\\Programs\\Startup");
 
-            // get files in directories
-            if (AppData.Exists)
-            {
-                FullDirList(AppData, "*", allFiles);
-            }
+
+            // get files in directories and subdirs 1 level deep
             if (allUsers.Exists)
             {
-                FullDirList(allUsers, "*", allFiles);
+                foreach (DirectoryInfo dir in allUsers.GetDirectories("*", SearchOption.TopDirectoryOnly))
+                {
+                    FullDirList(dir, "*", allFiles);
+                }
             }
             if (tasks.Exists)
             {
-                FullDirList(tasks, "*", allFiles);
+                foreach (DirectoryInfo dir in tasks.GetDirectories("*", SearchOption.TopDirectoryOnly))
+                {
+                    FullDirList(dir, "*", allFiles);
+                }
             }
             if (startup.Exists)
             {
-                FullDirList(startup, "*", allFiles);
+                foreach (DirectoryInfo dir in startup.GetDirectories("*", SearchOption.TopDirectoryOnly))
+                {
+                    FullDirList(dir, "*", allFiles);
+                }
+            }
+            if (AppData.Exists)
+            {
+                foreach (DirectoryInfo dir in AppData.GetDirectories("*", SearchOption.TopDirectoryOnly))
+                {
+                    FullDirList(dir, "*", allFiles);
+                }
             }
 
-            // get files in directories and subdirs 1 level deep
             if (AppDataLocal.Exists)
             {
+
                 foreach (DirectoryInfo dir in AppDataLocal.GetDirectories("*", SearchOption.TopDirectoryOnly))
                 {
                     FullDirList(dir, "*", allFiles);
@@ -883,6 +896,7 @@ namespace crsponse
 
             if (Temp.Exists)
             {
+             
                 foreach (DirectoryInfo dir in Temp.GetDirectories("*", SearchOption.TopDirectoryOnly))
                 {
                     FullDirList(dir, "*", allFiles);
