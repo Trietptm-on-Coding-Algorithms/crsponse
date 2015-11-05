@@ -183,7 +183,7 @@ namespace crsponse
             osName = getOSName();
             userName = username;
             userSID = user2SID(userName.ToUpper());
-            directoryName = machineName + "_info";
+            directoryName = machineName + "_" + userName + "_info";
             if (userSID != null && !userSID.Equals(""))
             {
                 DirectoryInfo di = Directory.CreateDirectory(directoryName);
@@ -896,7 +896,7 @@ namespace crsponse
 
             if (Temp.Exists)
             {
-             
+
                 foreach (DirectoryInfo dir in Temp.GetDirectories("*", SearchOption.TopDirectoryOnly))
                 {
                     FullDirList(dir, "*", allFiles);
@@ -1100,6 +1100,17 @@ namespace crsponse
                 }
 
                 // splash screen page
+                else if (finfo.Name.ToLower().Contains("help_your_files"))
+                {
+                    String finding = finfo.Name.Replace(",", " ") + "," + finfo.Attributes.ToString().Replace(",", " | ") + "," + finfo.CreationTime + "," + finfo.LastWriteTime + "," + finfo.LastAccessTime + "," + finfo.DirectoryName;
+                    if (!summary.Contains(finding))
+                    {
+                        summary.Add(finding);
+                    }
+                }
+
+
+                // splash screen page
                 else if (finfo.Name.ToLower().Contains("help_to_decrypt_your_files"))
                 {
                     String finding = finfo.Name.Replace(",", " ") + "," + finfo.Attributes.ToString().Replace(",", " | ") + "," + finfo.CreationTime + "," + finfo.LastWriteTime + "," + finfo.LastAccessTime + "," + finfo.DirectoryName;
@@ -1238,6 +1249,17 @@ namespace crsponse
                         summary.Add(finding);
                     }
                 }
+
+                // exe related to cryptowall 4.0
+                else if (finfo.Name.ToLower().Contains("analitics.exe"))
+                {
+                    String finding = finfo.Name.Replace(",", " ") + "," + finfo.Attributes.ToString().Replace(",", " | ") + "," + finfo.CreationTime + "," + finfo.LastWriteTime + "," + finfo.LastAccessTime + "," + finfo.DirectoryName;
+                    if (!summary.Contains(finding))
+                    {
+                        summary.Add(finding);
+                    }
+                }
+
                 // coinvault file
                 else if (finfo.Name.ToLower().Contains("edone") && finfo.DirectoryName.ToLower().Equals("c:\\" + userPath + "\\" + userName.ToLower() + "\\" + appDataPath + "\\roaming\\microsoft\\windows"))
                 {
