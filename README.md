@@ -1,7 +1,7 @@
 # crsponse
 Crypto Ransomware Response Tool  
 Copyright (C) 2015 Brett Hawkins  
-Twitter Handle: @hawkbluedevil
+Twitter Handle: @h4wkst3r
 
 ####Description:####
 A response tool to help in determining whether a machine has been infected with Crypto Ransomware.
